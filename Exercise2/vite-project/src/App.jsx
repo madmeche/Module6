@@ -11,7 +11,7 @@ function App() {
 
   return (
     <>
-    {/* <Greeting /> */}
+    <Greeting name = 'John'><p>This is children</p></Greeting>
       <BigCats/>
       {/* <OrganizeCats/> */}
       {/* <Emoji/> */}

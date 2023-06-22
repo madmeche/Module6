@@ -2,7 +2,7 @@ function Greeting(props) {
 
     return(
             <div className="Greetings">
-                    <h3>Hello {props.name ? props.name : "John"}</h3>
+                    <h3>Hello {props.name}</h3>
                     <p>{props.children} </p>
                     
             </div>

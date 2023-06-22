@@ -1,3 +1,4 @@
+import Cheetah from '../BigCats/CatImages/Cheetah.jpg'
 import Cats from "./Cats";
 import { useState } from "react";
 
@@ -7,7 +8,8 @@ function BigCats() {
       id: 1,
       name: "Cheetah",
       latinName: "Acinonyx jubatus",
-      image: "../CatImages/Cheetah.jpg",
+      image: {Cheetah} ,
+      // "../CatImages/Cheetah.jpg",
     },
     {
       id: 2,
@@ -58,14 +60,14 @@ function BigCats() {
 
   const handleSortCats = () => {
     console.log("sort");
-    const sortCats = [...cats].sort((a, b) => {
+    const sortCats = [...currentBigCats].sort((a, b) => {
       const nameA = a.name.toUpperCase();
       const nameB = b.name.toUpperCase();
       if (nameA > nameB) {
-        return -1;
+        return 1;
       }
       if (nameA < nameB) {
-        return 1;
+        return -1;
       }
       return 0;
     });
@@ -73,9 +75,14 @@ function BigCats() {
   };
 
   const handleFilterCat = (latinName) => {
-    let filterCat = currentBigCats.filter((cats) =>
-      cats.latinName.toLowerCase()
-    );
+    
+    let filterCat = currentBigCats.filter((cats) => {
+      let filterCatSplit= cats.latinName.split(' ')
+      // cats.latinName.split(" ");
+      filterCatSplit.toLowerCase() ;
+      return filterCatSplit.latinName !== latinName
+      }
+    )
     setCurrentBigCats(filterCat);
   };
 
@@ -101,11 +108,11 @@ function BigCats() {
     <div>
       <h1>Big Cats</h1>
       <ul className="catList">
-        {cats.map((cat) => (
+        {currentBigCats.map((cat) => (
           <li key={cat.id}>
             <h2>{cat.name}</h2>
             <p>Latin Name: {cat.latinName}</p>
-            {/* <img src = {cat.image}></img> */}
+            <img src = {cat.image}></img>
           </li>
         ))}
       </ul>
