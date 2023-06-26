@@ -2,16 +2,16 @@ import { useState } from "react";
 // import React from "react";
 
 function Emoji() {
-    const [Face, newFace] = useState('😀');
+    const [face, newFace] = useState('😀');
 
     const handleChangeFace = () => {
-        newFace(Face === "😀" ? "🤩" : "🤗");
+        newFace(face === "😀" ? "🤩" : "🤗");
     }
     return (
         <div>
-            <button onClick = {() => newFace("🤩")}>Get Excited</button>
-            <button onClick={handleChangeFace}>Try Again</button>
-            {/* <span><img src={Face} alt="Face" /></span> */}
+            
+            <button onClick={handleChangeFace}>Get Excited</button>
+            <p>{face}</p>
             </div>
             );
             }

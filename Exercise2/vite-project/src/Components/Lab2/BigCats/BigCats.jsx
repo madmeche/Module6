@@ -8,44 +8,43 @@ function BigCats() {
       id: 1,
       name: "Cheetah",
       latinName: "Acinonyx jubatus",
-      image: {Cheetah} ,
-      // "../CatImages/Cheetah.jpg",
+      image:'https://www.livemint.com/lm-img/img/2023/04/29/600x338/PTI03-27-2023-000272A-0_1682396467147_1682732373970.jpg' 
     },
     {
       id: 2,
       name: "Cougar",
       latinName: "Puma concolor",
-      image: "../CatImages/Cougar.jpg",
+      image: "https://www.zoonewengland.org/media/663826/cougar3gallery.jpg",
     },
     {
       id: 3,
       name: "Jaguar",
       latinName: "Panthera onca",
-      image: "../CatImages/Jaguar.jpg",
+      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREwNidup82yrm5aL42A2rlGE8_pJvI84tXFw&usqp=CAU",
     },
     {
       id: 4,
       name: "Leopard",
       latinName: "Panthera pardus",
-      image: "../CatImages/Leopard.jpg",
+      image: "https://www.dailypaws.com/thmb/oPYrRPz2uBCHFZRmwYpX6LfNQdk=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/new-leopard-cub-131103994-2000-d85990e498a64ed08d0d24450ca2dd54.jpg",
     },
     {
       id: 5,
       name: "Lion",
       latinName: "Panthera leo",
-      image: "../BigCats/CatImages/Lion.jpg",
+      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmaoQC7sp_k03unaETFclRCe6AiolUVHsXoQ&usqp=CAU",
     },
     {
       id: 6,
       name: "Snow leopard",
       latinName: "Panthera uncia",
-      image: "../BigCats/CatImages/Snow Leopard.jpg",
+      image: "https://animals.sandiegozoo.org/sites/default/files/2016-09/animals_hero_snowleopard.jpg",
     },
     {
       id: 7,
       name: "Tiger",
       latinName: "Panthera tigris",
-      image: "../CatImages/Tiger.jpg",
+      image: "https://media1.popsugar-assets.com/files/thumbor/_mxpBwbW-cd-DnuorNHN5sF29vE/fit-in/1024x1024/filters:format_auto-!!-:strip_icc-!!-/2021/11/14/104/n/45101125/455f35fe6191b8449adc43.31973798_/i/tiger-king-where-is-cast-now.jpg",
     },
   ];
 
@@ -77,12 +76,13 @@ function BigCats() {
   const handleFilterCat = (latinName) => {
     
     let filterCat = currentBigCats.filter((cats) => {
-      let filterCatSplit= cats.latinName.split(' ')
-      // cats.latinName.split(" ");
-      filterCatSplit.toLowerCase() ;
-      return filterCatSplit.latinName !== latinName
-      }
-    )
+      let splitCat = cats.latinName.split(' ')
+          console.log(splitCat) 
+          //[0] must = latinName 
+          if ( [0] !== latinName ) 
+          return cats
+    });       
+    
     setCurrentBigCats(filterCat);
   };
 
@@ -112,7 +112,7 @@ function BigCats() {
           <li key={cat.id}>
             <h2>{cat.name}</h2>
             <p>Latin Name: {cat.latinName}</p>
-            <img src = {cat.image}></img>
+            <img src = {cat.image} height='150px'></img>
           </li>
         ))}
       </ul>
