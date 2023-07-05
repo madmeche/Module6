@@ -113,31 +113,41 @@ function BigCats() {
     setCurrentBigCats(newBigCats);
   }
 
-  // const handleAddCat = (newCatToAdd) => {
-  //   let newCat = {
-  //       ...newCatToAdd,
-  //       id: currentBigCats.length +1
-  //   }
-  //   let newCats = [
-  //     ...currentBigCats,
-  //     newCat
-  //   ]
+  const handleDeleteCat = (id) =>{
+    const newList = currentBigCats.filter((cats) => cats.id !== id);
+    setCurrentBigCats(newList)
 
-  //   setCurrentBigCats(newCats)
-  // }
+    // console.log(id);
+  }
 
+
+
+  const catList = currentBigCats.map((cats) => (
+    <div>
+    <Cats
+      id={cats.id}
+      name={cats.name}
+      latinName={cats.latinName}
+      image={cats.image}
+      onDeleteCat={handleDeleteCat}
+    />
+    </div>
+  ));
+ 
   return (
     <div>
       <h1>Big Cats</h1>
-      <ul className="catList">
-        {currentBigCats.map((cat) => (
+      {/* <ul className="catList">
+        {catList.map((cat) => (
           <li key={cat.id}>
             <h2>{cat.name}</h2>
             <p>Latin Name: {cat.latinName}</p>
             <img src={cat.image} height="150px"></img>
+            <button type='button' onClick={handleDeleteCat}>Remove Cat</button>
           </li>
         ))}
-      </ul>
+      </ul> */}
+      <ul>{catList}</ul>
       <button onClick={handleReverseCats}>Reverse</button>
       <button onClick={handleSortCats}>A-Z</button>
       {/* <button onClick={() => handleFilterCat("panthera")}>Panthera Cats</button> */}

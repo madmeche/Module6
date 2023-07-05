@@ -4,6 +4,8 @@ function AddCatForm(onAddCat) {
   const [name, setName] = useState('');
   const [latin, setLatin] = useState('');
 
+ 
+
   const handleSubmit= (e) => {
   setName(e.target.name.value);
   setLatin(e.target.latin.value);

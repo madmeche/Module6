@@ -1,12 +1,25 @@
+import React from "react";
+
+
+
 function Cats(props) {
-  const { name, latinName, image } = props;
-  return (
+const { id, name, latinName, image, onDeleteCat } = props;
+
+const handleDeleteCat = () => {
+    onDeleteCat(id);
+};
+
+return(
     <li>
-   <h1>Big Cats</h1>
-   <h3>{name}</h3><span>{latinName}</span>
-   <div className= 'image'>{image}</div>
+        <h3>{name}</h3> <span>({latinName})</span>
+        <div>
+        <img id={id} src={image} alt={name} width="200px"
+        />
+        </div>
+        <button onClick={handleDeleteCat}>Remove Cat</button>
+        
     </li>
-  );
+)
 }
 
-export default Cats;
+export default Cats
